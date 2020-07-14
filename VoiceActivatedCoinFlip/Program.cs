@@ -6,7 +6,8 @@ namespace VoiceActivatedCoinFlip
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CoinFlip coinFlip = new CoinFlip();
+            coinFlip.Play();
         }
     }
 }
