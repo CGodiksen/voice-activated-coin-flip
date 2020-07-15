@@ -58,15 +58,16 @@ namespace VoiceActivatedCoinFlip
             var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
             phraseList.AddPhrase("Heads");
             phraseList.AddPhrase("Tails");
-
+            phraseList.AddPhrase("Stop");
+            
+            string userChoice = "";
+            
             while (true)
             {
                 Console.WriteLine("Say heads or tails:");
 
                 // Recognizing a single input from the microphone, meaning that the recognizer stops after the first word.
                 var result = await recognizer.RecognizeOnceAsync();
-                
-                string userChoice = "";
 
                 // Going through the possible reasons a recognition result might be generated.
                 switch (result.Reason)
@@ -100,6 +101,12 @@ namespace VoiceActivatedCoinFlip
                     }
 
                     Console.WriteLine(GetStatistics());
+                }
+                
+                // Stopping the application if the user said "Stop".
+                if (userChoice == "Stop")
+                {
+                    Environment.Exit(0);
                 }
             }
         }
