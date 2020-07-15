@@ -31,7 +31,7 @@ namespace VoiceActivatedCoinFlip
         }
 
         // Returns a string containing statistics like the previues results of the coin and the users win percentage.
-        private string getStatistics()
+        private string GetStatistics()
         {
             double winPercentage = 0;
             if(winCounter + lossCounter != 0)
@@ -72,7 +72,7 @@ namespace VoiceActivatedCoinFlip
                     Console.WriteLine($"The coin landed {flippedCoin}, You lost!\n");
                 }
 
-                Console.WriteLine(getStatistics());
+                Console.WriteLine(GetStatistics());
             }
         }
     }
