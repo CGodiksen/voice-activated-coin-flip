@@ -7,7 +7,6 @@ using System.IO;
 namespace VoiceActivatedCoinFlip
 {
 
-    // Make it so a secret word always makes the player lose.
     class CoinFlip
     {
         private int headCounter = 0;
@@ -32,7 +31,7 @@ namespace VoiceActivatedCoinFlip
 
         }
 
-        // Returns a string containing statistics like the previues results of the coin and the users win percentage.
+        // Returns a string containing statistics like the previous results of the coin and the users win percentage.
         private string GetStatistics()
         {
             double winPercentage = 0;
@@ -47,7 +46,7 @@ namespace VoiceActivatedCoinFlip
         public async Task Play()
         {
             // Loading the subscription key and service region from the settings file.
-            Settings settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(@"C:\Users\chris\source\repos\VoiceActivatedCoinFlip\VoiceActivatedCoinFlip\settings.json"));
+            Settings settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "settings.json")));
 
             var config = SpeechConfig.FromSubscription(settings.SubscriptionKey, settings.ServiceRegion);
 
